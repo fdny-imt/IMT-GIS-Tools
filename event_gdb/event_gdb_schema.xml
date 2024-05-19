@@ -7,24 +7,38 @@
         <Version></Version>
         <Domains xsi:type='esri:ArrayOfDomain'>
             <Domain xsi:type='esri:CodedValueDomain'>
-                <DomainName>YesNo</DomainName>
+                <DomainName>GeomType</DomainName>
                 <FieldType>esriFieldTypeString</FieldType>
                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
-                <Description>Yes, No</Description>
+                <Description>Geometry type</Description>
                 <Owner></Owner>
                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                     <CodedValue xsi:type='esri:CodedValue'>
-                        <Name>Yes</Name>
-                        <Code xsi:type='xs:string'>Yes</Code>
+                        <Name>line</Name>
+                        <Code xsi:type='xs:string'>line</Code>
                     </CodedValue>
                     <CodedValue xsi:type='esri:CodedValue'>
-                        <Name>No</Name>
-                        <Code xsi:type='xs:string'>No</Code>
+                        <Name>point</Name>
+                        <Code xsi:type='xs:string'>point</Code>
                     </CodedValue>
                     <CodedValue xsi:type='esri:CodedValue'>
-                        <Name>Unknown</Name>
-                        <Code xsi:type='xs:string'>Unk</Code>
+                        <Name>polygon</Name>
+                        <Code xsi:type='xs:string'>polygon</Code>
+                    </CodedValue>
+                </CodedValues>
+            </Domain>
+            <Domain xsi:type='esri:CodedValueDomain'>
+                <DomainName>FeatureGroup</DomainName>
+                <FieldType>esriFieldTypeString</FieldType>
+                <MergePolicy>esriMPTDefaultValue</MergePolicy>
+                <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
+                <Description>Feature group</Description>
+                <Owner></Owner>
+                <CodedValues xsi:type='esri:ArrayOfCodedValue'>
+                    <CodedValue xsi:type='esri:CodedValue'>
+                        <Name>Other/Unknown</Name>
+                        <Code xsi:type='xs:string'>Other</Code>
                     </CodedValue>
                 </CodedValues>
             </Domain>
@@ -33,7 +47,7 @@
                 <FieldType>esriFieldTypeString</FieldType>
                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
-                <Description>Feature Status</Description>
+                <Description>Feature status</Description>
                 <Owner></Owner>
                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                     <CodedValue xsi:type='esri:CodedValue'>
@@ -55,16 +69,16 @@
                 </CodedValues>
             </Domain>
             <Domain xsi:type='esri:CodedValueDomain'>
-                <DomainName>FeatureGroup</DomainName>
-                <FieldType>esriFieldTypeSmallInteger</FieldType>
+                <DomainName>FeatureCategory(Line)</DomainName>
+                <FieldType>esriFieldTypeString</FieldType>
                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
-                <Description>Feature Group</Description>
+                <Description>Line feature types</Description>
                 <Owner></Owner>
                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                     <CodedValue xsi:type='esri:CodedValue'>
                         <Name>Other/Unknown</Name>
-                        <Code xsi:type='xs:short'>0</Code>
+                        <Code xsi:type='xs:string'>Other</Code>
                     </CodedValue>
                 </CodedValues>
             </Domain>
@@ -73,7 +87,7 @@
                 <FieldType>esriFieldTypeString</FieldType>
                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
-                <Description>Map Method</Description>
+                <Description>Map method</Description>
                 <Owner></Owner>
                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                     <CodedValue xsi:type='esri:CodedValue'>
@@ -155,7 +169,7 @@
                 <FieldType>esriFieldTypeString</FieldType>
                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
-                <Description>Feature Access</Description>
+                <Description>Feature access</Description>
                 <Owner></Owner>
                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                     <CodedValue xsi:type='esri:CodedValue'>
@@ -180,13 +194,64 @@
                     </CodedValue>
                 </CodedValues>
             </Domain>
+            <Domain xsi:type='esri:CodedValueDomain'>
+                <DomainName>FeatureCategory(Point)</DomainName>
+                <FieldType>esriFieldTypeString</FieldType>
+                <MergePolicy>esriMPTDefaultValue</MergePolicy>
+                <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
+                <Description>Point feature types</Description>
+                <Owner></Owner>
+                <CodedValues xsi:type='esri:ArrayOfCodedValue'>
+                    <CodedValue xsi:type='esri:CodedValue'>
+                        <Name>Other/Unknown</Name>
+                        <Code xsi:type='xs:string'>Other</Code>
+                    </CodedValue>
+                </CodedValues>
+            </Domain>
+            <Domain xsi:type='esri:CodedValueDomain'>
+                <DomainName>FeatureCategory(Polygon)</DomainName>
+                <FieldType>esriFieldTypeString</FieldType>
+                <MergePolicy>esriMPTDefaultValue</MergePolicy>
+                <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
+                <Description>Polygon feature types</Description>
+                <Owner></Owner>
+                <CodedValues xsi:type='esri:ArrayOfCodedValue'>
+                    <CodedValue xsi:type='esri:CodedValue'>
+                        <Name>Other/Unknown</Name>
+                        <Code xsi:type='xs:string'>Other</Code>
+                    </CodedValue>
+                </CodedValues>
+            </Domain>
+            <Domain xsi:type='esri:CodedValueDomain'>
+                <DomainName>YesNo</DomainName>
+                <FieldType>esriFieldTypeSmallInteger</FieldType>
+                <MergePolicy>esriMPTDefaultValue</MergePolicy>
+                <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
+                <Description>Yes, No</Description>
+                <Owner></Owner>
+                <CodedValues xsi:type='esri:ArrayOfCodedValue'>
+                    <CodedValue xsi:type='esri:CodedValue'>
+                        <Name>Yes</Name>
+                        <Code xsi:type='xs:short'>1</Code>
+                    </CodedValue>
+                    <CodedValue xsi:type='esri:CodedValue'>
+                        <Name>No</Name>
+                        <Code xsi:type='xs:short'>0</Code>
+                    </CodedValue>
+                    <CodedValue xsi:type='esri:CodedValue'>
+                        <Name>Unknown</Name>
+                        <Code xsi:type='xs:short'>-1</Code>
+                    </CodedValue>
+                </CodedValues>
+            </Domain>
         </Domains>
+        <Sequences xsi:type='esri:ArrayOfSequence'></Sequences>
         <DatasetDefinitions xsi:type='esri:ArrayOfDataElement'>
             <DataElement xsi:type='esri:DETable'>
-                <CatalogPath>/OC=DynamicText</CatalogPath>
-                <Name>DynamicText</Name>
+                <CatalogPath>/OC=Dynamic_Text</CatalogPath>
+                <Name>Dynamic_Text</Name>
                 <DatasetType>esriDTTable</DatasetType>
-                <DSID>8</DSID>
+                <DSID>12</DSID>
                 <Versioned>false</Versioned>
                 <CanVersion>false</CanVersion>
                 <ConfigurationKeyword></ConfigurationKeyword>
@@ -327,10 +392,10 @@
                 <ReplicaTracked>false</ReplicaTracked>
             </DataElement>
             <DataElement xsi:type='esri:DETable'>
-                <CatalogPath>/OC=Incidents</CatalogPath>
-                <Name>Incidents</Name>
+                <CatalogPath>/OC=Contingent_Values</CatalogPath>
+                <Name>Contingent_Values</Name>
                 <DatasetType>esriDTTable</DatasetType>
-                <DSID>9</DSID>
+                <DSID>13</DSID>
                 <Versioned>false</Versioned>
                 <CanVersion>false</CanVersion>
                 <ConfigurationKeyword></ConfigurationKeyword>
@@ -351,64 +416,93 @@
                             <ModelName>OBJECTID</ModelName>
                         </Field>
                         <Field xsi:type='esri:Field'>
-                            <Name>inc_name</Name>
+                            <Name>geom_type</Name>
+                            <Type>esriFieldTypeString</Type>
+                            <IsNullable>false</IsNullable>
+                            <Length>7</Length>
+                            <Precision>0</Precision>
+                            <Scale>0</Scale>
+                            <AliasName>geom_type</AliasName>
+                            <Domain xsi:type='esri:CodedValueDomain'>
+                                <DomainName>GeomType</DomainName>
+                                <FieldType>esriFieldTypeString</FieldType>
+                                <MergePolicy>esriMPTDefaultValue</MergePolicy>
+                                <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
+                                <Description>Geometry type</Description>
+                                <Owner></Owner>
+                                <CodedValues xsi:type='esri:ArrayOfCodedValue'>
+                                    <CodedValue xsi:type='esri:CodedValue'>
+                                        <Name>line</Name>
+                                        <Code xsi:type='xs:string'>line</Code>
+                                    </CodedValue>
+                                    <CodedValue xsi:type='esri:CodedValue'>
+                                        <Name>point</Name>
+                                        <Code xsi:type='xs:string'>point</Code>
+                                    </CodedValue>
+                                    <CodedValue xsi:type='esri:CodedValue'>
+                                        <Name>polygon</Name>
+                                        <Code xsi:type='xs:string'>polygon</Code>
+                                    </CodedValue>
+                                </CodedValues>
+                            </Domain>
+                        </Field>
+                        <Field xsi:type='esri:Field'>
+                            <Name>feat_group</Name>
+                            <Type>esriFieldTypeString</Type>
+                            <IsNullable>false</IsNullable>
+                            <Length>30</Length>
+                            <Precision>0</Precision>
+                            <Scale>0</Scale>
+                            <AliasName>feature group</AliasName>
+                        </Field>
+                        <Field xsi:type='esri:Field'>
+                            <Name>feat_category</Name>
+                            <Type>esriFieldTypeString</Type>
+                            <IsNullable>false</IsNullable>
+                            <Length>30</Length>
+                            <Precision>0</Precision>
+                            <Scale>0</Scale>
+                            <AliasName>feature category</AliasName>
+                        </Field>
+                        <Field xsi:type='esri:Field'>
+                            <Name>is_active</Name>
+                            <Type>esriFieldTypeSmallInteger</Type>
+                            <IsNullable>false</IsNullable>
+                            <Length>2</Length>
+                            <Precision>0</Precision>
+                            <Scale>0</Scale>
+                            <AliasName>is_active</AliasName>
+                            <Domain xsi:type='esri:CodedValueDomain'>
+                                <DomainName>YesNo</DomainName>
+                                <FieldType>esriFieldTypeSmallInteger</FieldType>
+                                <MergePolicy>esriMPTDefaultValue</MergePolicy>
+                                <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
+                                <Description>Yes, No</Description>
+                                <Owner></Owner>
+                                <CodedValues xsi:type='esri:ArrayOfCodedValue'>
+                                    <CodedValue xsi:type='esri:CodedValue'>
+                                        <Name>Yes</Name>
+                                        <Code xsi:type='xs:short'>1</Code>
+                                    </CodedValue>
+                                    <CodedValue xsi:type='esri:CodedValue'>
+                                        <Name>No</Name>
+                                        <Code xsi:type='xs:short'>0</Code>
+                                    </CodedValue>
+                                    <CodedValue xsi:type='esri:CodedValue'>
+                                        <Name>Unknown</Name>
+                                        <Code xsi:type='xs:short'>-1</Code>
+                                    </CodedValue>
+                                </CodedValues>
+                            </Domain>
+                        </Field>
+                        <Field xsi:type='esri:Field'>
+                            <Name>keywords</Name>
                             <Type>esriFieldTypeString</Type>
                             <IsNullable>true</IsNullable>
                             <Length>255</Length>
                             <Precision>0</Precision>
                             <Scale>0</Scale>
-                            <AliasName>Incident Name</AliasName>
-                            <ModelName>IncidentName</ModelName>
-                        </Field>
-                        <Field xsi:type='esri:Field'>
-                            <Name>start_date_time</Name>
-                            <Type>esriFieldTypeDate</Type>
-                            <IsNullable>true</IsNullable>
-                            <Length>8</Length>
-                            <Precision>0</Precision>
-                            <Scale>0</Scale>
-                            <AliasName>Start Date/Time</AliasName>
-                            <ModelName>StartDateTime</ModelName>
-                        </Field>
-                        <Field xsi:type='esri:Field'>
-                            <Name>end_date_time</Name>
-                            <Type>esriFieldTypeDate</Type>
-                            <IsNullable>true</IsNullable>
-                            <Length>8</Length>
-                            <Precision>0</Precision>
-                            <Scale>0</Scale>
-                            <AliasName>End Date/Time</AliasName>
-                            <ModelName>EndDateTime</ModelName>
-                        </Field>
-                        <Field xsi:type='esri:Field'>
-                            <Name>inc_loc</Name>
-                            <Type>esriFieldTypeString</Type>
-                            <IsNullable>true</IsNullable>
-                            <Length>255</Length>
-                            <Precision>0</Precision>
-                            <Scale>0</Scale>
-                            <AliasName>Incident Location</AliasName>
-                            <ModelName>IncidentLocation</ModelName>
-                        </Field>
-                        <Field xsi:type='esri:Field'>
-                            <Name>local_inc_num</Name>
-                            <Type>esriFieldTypeString</Type>
-                            <IsNullable>true</IsNullable>
-                            <Length>32</Length>
-                            <Precision>0</Precision>
-                            <Scale>0</Scale>
-                            <AliasName>Incident Number</AliasName>
-                            <ModelName>IncidentNumber</ModelName>
-                        </Field>
-                        <Field xsi:type='esri:Field'>
-                            <Name>irwin_id</Name>
-                            <Type>esriFieldTypeString</Type>
-                            <IsNullable>true</IsNullable>
-                            <Length>32</Length>
-                            <Precision>0</Precision>
-                            <Scale>0</Scale>
-                            <AliasName>IRWIN ID</AliasName>
-                            <ModelName>IRWINID</ModelName>
+                            <AliasName>keywords</AliasName>
                         </Field>
                     </FieldArray>
                 </Fields>
@@ -440,7 +534,7 @@
                 <CLSID>{7A566981-C114-11D2-8A28-006097AFF44E}</CLSID>
                 <EXTCLSID></EXTCLSID>
                 <RelationshipClassNames xsi:type='esri:Names'></RelationshipClassNames>
-                <AliasName>Incidents</AliasName>
+                <AliasName>contingent_values</AliasName>
                 <ModelName></ModelName>
                 <HasGlobalID>false</HasGlobalID>
                 <GlobalIDFieldName></GlobalIDFieldName>
@@ -464,7 +558,7 @@
                 <CatalogPath>/FC=Event_Line</CatalogPath>
                 <Name>Event_Line</Name>
                 <DatasetType>esriDTFeatureClass</DatasetType>
-                <DSID>10</DSID>
+                <DSID>14</DSID>
                 <Versioned>false</Versioned>
                 <CanVersion>false</CanVersion>
                 <ConfigurationKeyword></ConfigurationKeyword>
@@ -523,25 +617,24 @@
                         </Field>
                         <Field xsi:type='esri:Field'>
                             <Name>feature_group</Name>
-                            <Type>esriFieldTypeSmallInteger</Type>
+                            <Type>esriFieldTypeString</Type>
                             <IsNullable>false</IsNullable>
-                            <Length>2</Length>
+                            <Length>30</Length>
                             <Precision>0</Precision>
                             <Scale>0</Scale>
                             <AliasName>Feature Group</AliasName>
                             <ModelName>FeatureGroup</ModelName>
-                            <DefaultValue xsi:type='xs:short'>0</DefaultValue>
                             <Domain xsi:type='esri:CodedValueDomain'>
                                 <DomainName>FeatureGroup</DomainName>
-                                <FieldType>esriFieldTypeSmallInteger</FieldType>
+                                <FieldType>esriFieldTypeString</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
-                                <Description>Feature Group</Description>
+                                <Description>Feature group</Description>
                                 <Owner></Owner>
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Other/Unknown</Name>
-                                        <Code xsi:type='xs:short'>0</Code>
+                                        <Code xsi:type='xs:string'>Other</Code>
                                     </CodedValue>
                                 </CodedValues>
                             </Domain>
@@ -550,11 +643,25 @@
                             <Name>feature_category</Name>
                             <Type>esriFieldTypeString</Type>
                             <IsNullable>false</IsNullable>
-                            <Length>50</Length>
+                            <Length>30</Length>
                             <Precision>0</Precision>
                             <Scale>0</Scale>
                             <AliasName>Feature Category (Line Type)</AliasName>
                             <ModelName>FeatureCategory</ModelName>
+                            <Domain xsi:type='esri:CodedValueDomain'>
+                                <DomainName>FeatureCategory(Line)</DomainName>
+                                <FieldType>esriFieldTypeString</FieldType>
+                                <MergePolicy>esriMPTDefaultValue</MergePolicy>
+                                <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
+                                <Description>Line feature types</Description>
+                                <Owner></Owner>
+                                <CodedValues xsi:type='esri:ArrayOfCodedValue'>
+                                    <CodedValue xsi:type='esri:CodedValue'>
+                                        <Name>Other/Unknown</Name>
+                                        <Code xsi:type='xs:string'>Other</Code>
+                                    </CodedValue>
+                                </CodedValues>
+                            </Domain>
                         </Field>
                         <Field xsi:type='esri:Field'>
                             <Name>inc_name</Name>
@@ -590,7 +697,7 @@
                                 <FieldType>esriFieldTypeString</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
-                                <Description>Map Method</Description>
+                                <Description>Map method</Description>
                                 <Owner></Owner>
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
@@ -702,7 +809,7 @@
                                 <FieldType>esriFieldTypeString</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
-                                <Description>Feature Status</Description>
+                                <Description>Feature status</Description>
                                 <Owner></Owner>
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
@@ -738,7 +845,7 @@
                                 <FieldType>esriFieldTypeString</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
-                                <Description>Feature Access</Description>
+                                <Description>Feature access</Description>
                                 <Owner></Owner>
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
@@ -766,16 +873,16 @@
                         </Field>
                         <Field xsi:type='esri:Field'>
                             <Name>is_visible</Name>
-                            <Type>esriFieldTypeString</Type>
+                            <Type>esriFieldTypeSmallInteger</Type>
                             <IsNullable>true</IsNullable>
-                            <Length>3</Length>
+                            <Length>2</Length>
                             <Precision>0</Precision>
                             <Scale>0</Scale>
                             <AliasName>Is Visible?</AliasName>
                             <ModelName>IsVisible</ModelName>
                             <Domain xsi:type='esri:CodedValueDomain'>
                                 <DomainName>YesNo</DomainName>
-                                <FieldType>esriFieldTypeString</FieldType>
+                                <FieldType>esriFieldTypeSmallInteger</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
                                 <Description>Yes, No</Description>
@@ -783,31 +890,31 @@
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Yes</Name>
-                                        <Code xsi:type='xs:string'>Yes</Code>
+                                        <Code xsi:type='xs:short'>1</Code>
                                     </CodedValue>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>No</Name>
-                                        <Code xsi:type='xs:string'>No</Code>
+                                        <Code xsi:type='xs:short'>0</Code>
                                     </CodedValue>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Unknown</Name>
-                                        <Code xsi:type='xs:string'>Unk</Code>
+                                        <Code xsi:type='xs:short'>-1</Code>
                                     </CodedValue>
                                 </CodedValues>
                             </Domain>
                         </Field>
                         <Field xsi:type='esri:Field'>
                             <Name>delete_this</Name>
-                            <Type>esriFieldTypeString</Type>
+                            <Type>esriFieldTypeSmallInteger</Type>
                             <IsNullable>true</IsNullable>
-                            <Length>3</Length>
+                            <Length>2</Length>
                             <Precision>0</Precision>
                             <Scale>0</Scale>
                             <AliasName>Delete this feature?</AliasName>
                             <ModelName>DeleteThis</ModelName>
                             <Domain xsi:type='esri:CodedValueDomain'>
                                 <DomainName>YesNo</DomainName>
-                                <FieldType>esriFieldTypeString</FieldType>
+                                <FieldType>esriFieldTypeSmallInteger</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
                                 <Description>Yes, No</Description>
@@ -815,15 +922,15 @@
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Yes</Name>
-                                        <Code xsi:type='xs:string'>Yes</Code>
+                                        <Code xsi:type='xs:short'>1</Code>
                                     </CodedValue>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>No</Name>
-                                        <Code xsi:type='xs:string'>No</Code>
+                                        <Code xsi:type='xs:short'>0</Code>
                                     </CodedValue>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Unknown</Name>
-                                        <Code xsi:type='xs:string'>Unk</Code>
+                                        <Code xsi:type='xs:short'>-1</Code>
                                     </CodedValue>
                                 </CodedValues>
                             </Domain>
@@ -860,16 +967,16 @@
                         </Field>
                         <Field xsi:type='esri:Field'>
                             <Name>is_owner</Name>
-                            <Type>esriFieldTypeString</Type>
+                            <Type>esriFieldTypeSmallInteger</Type>
                             <IsNullable>true</IsNullable>
-                            <Length>3</Length>
+                            <Length>2</Length>
                             <Precision>0</Precision>
                             <Scale>0</Scale>
                             <AliasName>Is Owner?</AliasName>
                             <ModelName>IsOwner</ModelName>
                             <Domain xsi:type='esri:CodedValueDomain'>
                                 <DomainName>YesNo</DomainName>
-                                <FieldType>esriFieldTypeString</FieldType>
+                                <FieldType>esriFieldTypeSmallInteger</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
                                 <Description>Yes, No</Description>
@@ -877,15 +984,15 @@
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Yes</Name>
-                                        <Code xsi:type='xs:string'>Yes</Code>
+                                        <Code xsi:type='xs:short'>1</Code>
                                     </CodedValue>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>No</Name>
-                                        <Code xsi:type='xs:string'>No</Code>
+                                        <Code xsi:type='xs:short'>0</Code>
                                     </CodedValue>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Unknown</Name>
-                                        <Code xsi:type='xs:string'>Unk</Code>
+                                        <Code xsi:type='xs:short'>-1</Code>
                                     </CodedValue>
                                 </CodedValues>
                             </Domain>
@@ -1269,7 +1376,7 @@
                         <IsEditingRestrictive>true</IsEditingRestrictive>
                     </FieldGroup>
                 </FieldGroups>
-                <ContingentValues xsi:type='xs:base64Binary'>ChkKC0ZlYXR1cmVUeXBlEgoKCAgBIgIgACIA</ContingentValues>
+                <ContingentValues xsi:type='xs:base64Binary'>ChsKC0ZlYXR1cmVUeXBlEgwKCggBIgJQACICUAASBU90aGVy</ContingentValues>
                 <ReplicaTracked>false</ReplicaTracked>
                 <FieldFilteringEnabled>false</FieldFilteringEnabled>
                 <FilteredFieldNames xsi:type='esri:Names'></FilteredFieldNames>
@@ -1278,7 +1385,7 @@
                 <CatalogPath>/FC=Event_Polygon</CatalogPath>
                 <Name>Event_Polygon</Name>
                 <DatasetType>esriDTFeatureClass</DatasetType>
-                <DSID>11</DSID>
+                <DSID>15</DSID>
                 <Versioned>false</Versioned>
                 <CanVersion>false</CanVersion>
                 <ConfigurationKeyword></ConfigurationKeyword>
@@ -1337,25 +1444,24 @@
                         </Field>
                         <Field xsi:type='esri:Field'>
                             <Name>feature_group</Name>
-                            <Type>esriFieldTypeSmallInteger</Type>
+                            <Type>esriFieldTypeString</Type>
                             <IsNullable>false</IsNullable>
-                            <Length>2</Length>
+                            <Length>30</Length>
                             <Precision>0</Precision>
                             <Scale>0</Scale>
                             <AliasName>Feature Group</AliasName>
                             <ModelName>FeatureGroup</ModelName>
-                            <DefaultValue xsi:type='xs:short'>0</DefaultValue>
                             <Domain xsi:type='esri:CodedValueDomain'>
                                 <DomainName>FeatureGroup</DomainName>
-                                <FieldType>esriFieldTypeSmallInteger</FieldType>
+                                <FieldType>esriFieldTypeString</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
-                                <Description>Feature Group</Description>
+                                <Description>Feature group</Description>
                                 <Owner></Owner>
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Other/Unknown</Name>
-                                        <Code xsi:type='xs:short'>0</Code>
+                                        <Code xsi:type='xs:string'>Other</Code>
                                     </CodedValue>
                                 </CodedValues>
                             </Domain>
@@ -1364,11 +1470,25 @@
                             <Name>feature_category</Name>
                             <Type>esriFieldTypeString</Type>
                             <IsNullable>false</IsNullable>
-                            <Length>50</Length>
+                            <Length>30</Length>
                             <Precision>0</Precision>
                             <Scale>0</Scale>
                             <AliasName>Feature Category (Polygon Type)</AliasName>
                             <ModelName>FeatureCategory</ModelName>
+                            <Domain xsi:type='esri:CodedValueDomain'>
+                                <DomainName>FeatureCategory(Polygon)</DomainName>
+                                <FieldType>esriFieldTypeString</FieldType>
+                                <MergePolicy>esriMPTDefaultValue</MergePolicy>
+                                <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
+                                <Description>Polygon feature types</Description>
+                                <Owner></Owner>
+                                <CodedValues xsi:type='esri:ArrayOfCodedValue'>
+                                    <CodedValue xsi:type='esri:CodedValue'>
+                                        <Name>Other/Unknown</Name>
+                                        <Code xsi:type='xs:string'>Other</Code>
+                                    </CodedValue>
+                                </CodedValues>
+                            </Domain>
                         </Field>
                         <Field xsi:type='esri:Field'>
                             <Name>inc_name</Name>
@@ -1404,7 +1524,7 @@
                                 <FieldType>esriFieldTypeString</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
-                                <Description>Map Method</Description>
+                                <Description>Map method</Description>
                                 <Owner></Owner>
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
@@ -1516,7 +1636,7 @@
                                 <FieldType>esriFieldTypeString</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
-                                <Description>Feature Status</Description>
+                                <Description>Feature status</Description>
                                 <Owner></Owner>
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
@@ -1552,7 +1672,7 @@
                                 <FieldType>esriFieldTypeString</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
-                                <Description>Feature Access</Description>
+                                <Description>Feature access</Description>
                                 <Owner></Owner>
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
@@ -1580,16 +1700,16 @@
                         </Field>
                         <Field xsi:type='esri:Field'>
                             <Name>is_visible</Name>
-                            <Type>esriFieldTypeString</Type>
+                            <Type>esriFieldTypeSmallInteger</Type>
                             <IsNullable>true</IsNullable>
-                            <Length>3</Length>
+                            <Length>2</Length>
                             <Precision>0</Precision>
                             <Scale>0</Scale>
                             <AliasName>Is Visible?</AliasName>
                             <ModelName>IsVisible</ModelName>
                             <Domain xsi:type='esri:CodedValueDomain'>
                                 <DomainName>YesNo</DomainName>
-                                <FieldType>esriFieldTypeString</FieldType>
+                                <FieldType>esriFieldTypeSmallInteger</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
                                 <Description>Yes, No</Description>
@@ -1597,31 +1717,31 @@
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Yes</Name>
-                                        <Code xsi:type='xs:string'>Yes</Code>
+                                        <Code xsi:type='xs:short'>1</Code>
                                     </CodedValue>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>No</Name>
-                                        <Code xsi:type='xs:string'>No</Code>
+                                        <Code xsi:type='xs:short'>0</Code>
                                     </CodedValue>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Unknown</Name>
-                                        <Code xsi:type='xs:string'>Unk</Code>
+                                        <Code xsi:type='xs:short'>-1</Code>
                                     </CodedValue>
                                 </CodedValues>
                             </Domain>
                         </Field>
                         <Field xsi:type='esri:Field'>
                             <Name>delete_this</Name>
-                            <Type>esriFieldTypeString</Type>
+                            <Type>esriFieldTypeSmallInteger</Type>
                             <IsNullable>true</IsNullable>
-                            <Length>3</Length>
+                            <Length>2</Length>
                             <Precision>0</Precision>
                             <Scale>0</Scale>
                             <AliasName>Delete this feature?</AliasName>
                             <ModelName>DeleteThis</ModelName>
                             <Domain xsi:type='esri:CodedValueDomain'>
                                 <DomainName>YesNo</DomainName>
-                                <FieldType>esriFieldTypeString</FieldType>
+                                <FieldType>esriFieldTypeSmallInteger</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
                                 <Description>Yes, No</Description>
@@ -1629,15 +1749,15 @@
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Yes</Name>
-                                        <Code xsi:type='xs:string'>Yes</Code>
+                                        <Code xsi:type='xs:short'>1</Code>
                                     </CodedValue>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>No</Name>
-                                        <Code xsi:type='xs:string'>No</Code>
+                                        <Code xsi:type='xs:short'>0</Code>
                                     </CodedValue>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Unknown</Name>
-                                        <Code xsi:type='xs:string'>Unk</Code>
+                                        <Code xsi:type='xs:short'>-1</Code>
                                     </CodedValue>
                                 </CodedValues>
                             </Domain>
@@ -1674,16 +1794,16 @@
                         </Field>
                         <Field xsi:type='esri:Field'>
                             <Name>is_owner</Name>
-                            <Type>esriFieldTypeString</Type>
+                            <Type>esriFieldTypeSmallInteger</Type>
                             <IsNullable>true</IsNullable>
-                            <Length>3</Length>
+                            <Length>2</Length>
                             <Precision>0</Precision>
                             <Scale>0</Scale>
                             <AliasName>Is Owner?</AliasName>
                             <ModelName>IsOwner</ModelName>
                             <Domain xsi:type='esri:CodedValueDomain'>
                                 <DomainName>YesNo</DomainName>
-                                <FieldType>esriFieldTypeString</FieldType>
+                                <FieldType>esriFieldTypeSmallInteger</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
                                 <Description>Yes, No</Description>
@@ -1691,15 +1811,15 @@
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Yes</Name>
-                                        <Code xsi:type='xs:string'>Yes</Code>
+                                        <Code xsi:type='xs:short'>1</Code>
                                     </CodedValue>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>No</Name>
-                                        <Code xsi:type='xs:string'>No</Code>
+                                        <Code xsi:type='xs:short'>0</Code>
                                     </CodedValue>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Unknown</Name>
-                                        <Code xsi:type='xs:string'>Unk</Code>
+                                        <Code xsi:type='xs:short'>-1</Code>
                                     </CodedValue>
                                 </CodedValues>
                             </Domain>
@@ -2084,7 +2204,7 @@
                         <IsEditingRestrictive>true</IsEditingRestrictive>
                     </FieldGroup>
                 </FieldGroups>
-                <ContingentValues xsi:type='xs:base64Binary'>ChkKC0ZlYXR1cmVUeXBlEgoKCAgBIgIgACIA</ContingentValues>
+                <ContingentValues xsi:type='xs:base64Binary'>ChsKC0ZlYXR1cmVUeXBlEgwKCggBIgJQACICUAASBU90aGVy</ContingentValues>
                 <ReplicaTracked>false</ReplicaTracked>
                 <FieldFilteringEnabled>false</FieldFilteringEnabled>
                 <FilteredFieldNames xsi:type='esri:Names'></FilteredFieldNames>
@@ -2093,7 +2213,7 @@
                 <CatalogPath>/FC=Event_Point</CatalogPath>
                 <Name>Event_Point</Name>
                 <DatasetType>esriDTFeatureClass</DatasetType>
-                <DSID>12</DSID>
+                <DSID>16</DSID>
                 <Versioned>false</Versioned>
                 <CanVersion>false</CanVersion>
                 <ConfigurationKeyword></ConfigurationKeyword>
@@ -2150,25 +2270,24 @@
                         </Field>
                         <Field xsi:type='esri:Field'>
                             <Name>feature_group</Name>
-                            <Type>esriFieldTypeSmallInteger</Type>
+                            <Type>esriFieldTypeString</Type>
                             <IsNullable>false</IsNullable>
-                            <Length>2</Length>
+                            <Length>30</Length>
                             <Precision>0</Precision>
                             <Scale>0</Scale>
                             <AliasName>Feature Group</AliasName>
                             <ModelName>FeatureGroup</ModelName>
-                            <DefaultValue xsi:type='xs:short'>0</DefaultValue>
                             <Domain xsi:type='esri:CodedValueDomain'>
                                 <DomainName>FeatureGroup</DomainName>
-                                <FieldType>esriFieldTypeSmallInteger</FieldType>
+                                <FieldType>esriFieldTypeString</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
-                                <Description>Feature Group</Description>
+                                <Description>Feature group</Description>
                                 <Owner></Owner>
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Other/Unknown</Name>
-                                        <Code xsi:type='xs:short'>0</Code>
+                                        <Code xsi:type='xs:string'>Other</Code>
                                     </CodedValue>
                                 </CodedValues>
                             </Domain>
@@ -2177,11 +2296,25 @@
                             <Name>feature_category</Name>
                             <Type>esriFieldTypeString</Type>
                             <IsNullable>false</IsNullable>
-                            <Length>50</Length>
+                            <Length>30</Length>
                             <Precision>0</Precision>
                             <Scale>0</Scale>
                             <AliasName>Feature Category (Point Type)</AliasName>
                             <ModelName>FeatureCategory</ModelName>
+                            <Domain xsi:type='esri:CodedValueDomain'>
+                                <DomainName>FeatureCategory(Point)</DomainName>
+                                <FieldType>esriFieldTypeString</FieldType>
+                                <MergePolicy>esriMPTDefaultValue</MergePolicy>
+                                <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
+                                <Description>Point feature types</Description>
+                                <Owner></Owner>
+                                <CodedValues xsi:type='esri:ArrayOfCodedValue'>
+                                    <CodedValue xsi:type='esri:CodedValue'>
+                                        <Name>Other/Unknown</Name>
+                                        <Code xsi:type='xs:string'>Other</Code>
+                                    </CodedValue>
+                                </CodedValues>
+                            </Domain>
                         </Field>
                         <Field xsi:type='esri:Field'>
                             <Name>inc_name</Name>
@@ -2217,7 +2350,7 @@
                                 <FieldType>esriFieldTypeString</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
-                                <Description>Map Method</Description>
+                                <Description>Map method</Description>
                                 <Owner></Owner>
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
@@ -2329,7 +2462,7 @@
                                 <FieldType>esriFieldTypeString</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
-                                <Description>Feature Status</Description>
+                                <Description>Feature status</Description>
                                 <Owner></Owner>
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
@@ -2365,7 +2498,7 @@
                                 <FieldType>esriFieldTypeString</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
-                                <Description>Feature Access</Description>
+                                <Description>Feature access</Description>
                                 <Owner></Owner>
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
@@ -2393,16 +2526,16 @@
                         </Field>
                         <Field xsi:type='esri:Field'>
                             <Name>is_visible</Name>
-                            <Type>esriFieldTypeString</Type>
+                            <Type>esriFieldTypeSmallInteger</Type>
                             <IsNullable>true</IsNullable>
-                            <Length>3</Length>
+                            <Length>2</Length>
                             <Precision>0</Precision>
                             <Scale>0</Scale>
                             <AliasName>Is Visible?</AliasName>
                             <ModelName>IsVisible</ModelName>
                             <Domain xsi:type='esri:CodedValueDomain'>
                                 <DomainName>YesNo</DomainName>
-                                <FieldType>esriFieldTypeString</FieldType>
+                                <FieldType>esriFieldTypeSmallInteger</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
                                 <Description>Yes, No</Description>
@@ -2410,31 +2543,31 @@
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Yes</Name>
-                                        <Code xsi:type='xs:string'>Yes</Code>
+                                        <Code xsi:type='xs:short'>1</Code>
                                     </CodedValue>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>No</Name>
-                                        <Code xsi:type='xs:string'>No</Code>
+                                        <Code xsi:type='xs:short'>0</Code>
                                     </CodedValue>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Unknown</Name>
-                                        <Code xsi:type='xs:string'>Unk</Code>
+                                        <Code xsi:type='xs:short'>-1</Code>
                                     </CodedValue>
                                 </CodedValues>
                             </Domain>
                         </Field>
                         <Field xsi:type='esri:Field'>
                             <Name>delete_this</Name>
-                            <Type>esriFieldTypeString</Type>
+                            <Type>esriFieldTypeSmallInteger</Type>
                             <IsNullable>true</IsNullable>
-                            <Length>3</Length>
+                            <Length>2</Length>
                             <Precision>0</Precision>
                             <Scale>0</Scale>
                             <AliasName>Delete this feature?</AliasName>
                             <ModelName>DeleteThis</ModelName>
                             <Domain xsi:type='esri:CodedValueDomain'>
                                 <DomainName>YesNo</DomainName>
-                                <FieldType>esriFieldTypeString</FieldType>
+                                <FieldType>esriFieldTypeSmallInteger</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
                                 <Description>Yes, No</Description>
@@ -2442,15 +2575,15 @@
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Yes</Name>
-                                        <Code xsi:type='xs:string'>Yes</Code>
+                                        <Code xsi:type='xs:short'>1</Code>
                                     </CodedValue>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>No</Name>
-                                        <Code xsi:type='xs:string'>No</Code>
+                                        <Code xsi:type='xs:short'>0</Code>
                                     </CodedValue>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Unknown</Name>
-                                        <Code xsi:type='xs:string'>Unk</Code>
+                                        <Code xsi:type='xs:short'>-1</Code>
                                     </CodedValue>
                                 </CodedValues>
                             </Domain>
@@ -2487,16 +2620,16 @@
                         </Field>
                         <Field xsi:type='esri:Field'>
                             <Name>is_owner</Name>
-                            <Type>esriFieldTypeString</Type>
+                            <Type>esriFieldTypeSmallInteger</Type>
                             <IsNullable>true</IsNullable>
-                            <Length>3</Length>
+                            <Length>2</Length>
                             <Precision>0</Precision>
                             <Scale>0</Scale>
                             <AliasName>Is Owner?</AliasName>
                             <ModelName>IsOwner</ModelName>
                             <Domain xsi:type='esri:CodedValueDomain'>
                                 <DomainName>YesNo</DomainName>
-                                <FieldType>esriFieldTypeString</FieldType>
+                                <FieldType>esriFieldTypeSmallInteger</FieldType>
                                 <MergePolicy>esriMPTDefaultValue</MergePolicy>
                                 <SplitPolicy>esriSPTDefaultValue</SplitPolicy>
                                 <Description>Yes, No</Description>
@@ -2504,15 +2637,15 @@
                                 <CodedValues xsi:type='esri:ArrayOfCodedValue'>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Yes</Name>
-                                        <Code xsi:type='xs:string'>Yes</Code>
+                                        <Code xsi:type='xs:short'>1</Code>
                                     </CodedValue>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>No</Name>
-                                        <Code xsi:type='xs:string'>No</Code>
+                                        <Code xsi:type='xs:short'>0</Code>
                                     </CodedValue>
                                     <CodedValue xsi:type='esri:CodedValue'>
                                         <Name>Unknown</Name>
-                                        <Code xsi:type='xs:string'>Unk</Code>
+                                        <Code xsi:type='xs:short'>-1</Code>
                                     </CodedValue>
                                 </CodedValues>
                             </Domain>
@@ -2933,7 +3066,7 @@
                         <IsEditingRestrictive>true</IsEditingRestrictive>
                     </FieldGroup>
                 </FieldGroups>
-                <ContingentValues xsi:type='xs:base64Binary'>ChkKC0ZlYXR1cmVUeXBlEgoKCAgBIgIgACIA</ContingentValues>
+                <ContingentValues xsi:type='xs:base64Binary'>ChsKC0ZlYXR1cmVUeXBlEgwKCggBIgJQACICUAASBU90aGVy</ContingentValues>
                 <ReplicaTracked>false</ReplicaTracked>
                 <FieldFilteringEnabled>false</FieldFilteringEnabled>
                 <FilteredFieldNames xsi:type='esri:Names'></FilteredFieldNames>

@@ -1,6 +1,7 @@
 import arcpy
 import importlib
 
+# TODO: do we still need todo this with the debug/test pattern?
 # Hacky dumb shit to get AGP to see updated code on reload. Before you ask: a reload in the catalog is not sufficient.
 # Adapted from https://github.com/Wildsong/ArcGIS_Python_Template
 # import _template
@@ -11,6 +12,10 @@ import export_layouts
 importlib.reload(export_layouts)
 from export_layouts import ExportLayouts
 
+import cv_update
+importlib.reload(cv_update)
+from cv_update import CVUpdate
+
 # import update_domains
 # importlib.reload(update_domains)
 # from update_domains import UpdateDomains
@@ -19,7 +24,7 @@ from export_layouts import ExportLayouts
 tool_list = [
     #_Template
     ExportLayouts,
-    #UpdateDomains
+    CVUpdate
 ]
 
 class Toolbox(object):
